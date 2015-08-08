@@ -59,7 +59,7 @@ MPI = mpi
 
 
 def mcmdd(eqd, runs=1000, quantile=0.99, array=False):
-    maxdds = [maxdd(eqd.take(numpy.random.permutation(len(eqd)))) for i in xrange(runs)]
+    maxdds = [maxdd(eqd.take(numpy.random.permutation(len(eqd)))) for i in range(runs)]
     if not array:
         return pandas.Series(maxdds).quantile(quantile)
     else:

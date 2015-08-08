@@ -2,7 +2,7 @@
 
 # part of pybacktest package: https://github.com/ematvey/pybacktest
 
-from __future__ import print_function
+
 import time
 
 from pandas.lib import cache_readonly
@@ -85,7 +85,7 @@ class Backtest(object):
         To get a hang of it, check out the examples.
 
         """
-        self._dataobj = dict([(k.lower(), v) for k, v in dataobj.iteritems()])
+        self._dataobj = dict([(k.lower(), v) for k, v in list(dataobj.items())])
         self._sig_mask_ext = signal_fields
         self._pr_mask_ext = price_fields
         self.name = name
@@ -167,11 +167,11 @@ class Backtest(object):
         import yaml
 
         s = '|  %s  |' % self
-        print('-' * len(s))
+        print(('-' * len(s)))
         print(s)
-        print('-' * len(s), '\n')
-        print(yaml.dump(self.report, allow_unicode=True, default_flow_style=False))
-        print('-' * len(s))
+        print(('-' * len(s), '\n'))
+        print((yaml.dump(self.report, allow_unicode=True, default_flow_style=False)))
+        print(('-' * len(s)))
 
     def plot_equity(self, subset=None):
         if subset is None:
